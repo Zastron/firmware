@@ -87,7 +87,9 @@ EXT_RAM_BSS_ATTR meshtastic_DeviceState devicestate;
 meshtastic_MyNodeInfo &myNodeInfo = devicestate.my_node;
 meshtastic_NodeDatabase nodeDatabase;
 meshtastic_LocalConfig config;
-meshtastic_DeviceUIConfig uiconfig{.screen_brightness = 153, .screen_timeout = 30};
+// .theme defaults to 0 (DARK) via aggregate init; this build's stock look is Material (3),
+// see Themes::Theme. Existing devices keep whatever they already have stored.
+meshtastic_DeviceUIConfig uiconfig{.screen_brightness = 153, .screen_timeout = 30, .theme = 3};
 meshtastic_LocalModuleConfig moduleConfig;
 meshtastic_ChannelFile channelFile;
 

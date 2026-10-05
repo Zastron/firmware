@@ -75,3 +75,13 @@ build/wasm/
 build/wasm-obj/
 build/wasm-*.log
 .emsdk/
+
+# Vendored meshtastic/device-ui (MUI, T-Deck Material theme): offline map tiles.
+# ~67 MB of runtime tile data (atlas/dark-matter/osm/positron zips) that the firmware
+# reads from the SD card, never from the build. Restore from the upstream zip if needed:
+# https://github.com/meshtastic/device-ui/archive/57c7bc682a288ec67d29cfc0018fee71d84e03bd.zip
+lib/meshtastic-device-ui/maps/
+
+# Windows-only PlatformIO launcher shims (see bin/pio-nomsys.py). Not used on CI.
+bin/pio-nomsys.py
+bin/pio_scons_shim.py
